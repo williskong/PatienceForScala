@@ -51,3 +51,4 @@ for (i <- 1 to 3){
 for (i <- 1 to 3; from = 4 - i; j <- from to 3) print(f"${10 * i + j}%3d")
 
 for (i <- 1 to 10) yield i % 3
+
