@@ -44,11 +44,15 @@ countDown(10)
 def addUni(s: String): Long = { var t: Long = 1; for(c <- s) t *= c.toInt; t}
 println(addUni("Hello"))
 
-/** write the preceding exercise without writing a loop
+/** solve the preceding exercise without writing a loop
   * Hint: look at the StringOps ScalaDoc
   */
 def addUniFold(s: String): Long = { s.foldLeft(1L)(_ * _.toInt)}
 println(addUniFold("Hello"))
+
+/** write a function product(s: String) that computes
+  * the product, as described in the preceding exercises.
+  */
 
 def product(s: String): Long = { s.foldLeft(1L)(_ * _.toInt)}
 
