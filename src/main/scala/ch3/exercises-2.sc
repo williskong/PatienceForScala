@@ -8,3 +8,16 @@ s.sum / s.length
 // so that they appear in reverse sorted order? How do
 // you do the same with an ArrayBuffer[Int]?
 
+val t = for(_ <- 0 until 10) yield random.nextInt(10)
+t.sorted
+val x = t.sorted.reverse
+
+// write a code snippet that produces all values from
+// an array with duplicates removed
+
+val m = for(_ <- 0 until 10) yield random.nextInt(10)
+m.distinct
+
+// rewrite the example at the end of Section 3.4
+// transforming arrays - using drop method for first
+// match
