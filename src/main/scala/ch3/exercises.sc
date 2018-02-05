@@ -22,6 +22,10 @@ val xz = for(i <- 0 until max by 2) (b(i), b(i+1)).swap
 // write the preceding, but yielding a new array
 b.toArray
 val bx = for(i <- 0 until max) yield if(i == 0 || i % 2 ==0) b(i+1) else (b(i-1))
+
+
+val z = for(i <- 0 until n) yield if(i < 5) r.nextInt(10) * -1 else r.nextInt(10)
+
 bx.toArray
 
 // Given an array of integers, produce a new
@@ -30,4 +34,9 @@ bx.toArray
 // original order, followed by all values
 // that are zero or negative, in their original order.
 
-for(bd <- b) yield if(bd > 0) bd 
+def sortPositiveToNegative(a: Array[Int]) = {
+  a.filter(_ > 0) ++ a.filter(_ <= 0)
+}
+val combinedUnsorted = bx.toArray ++ z
+val s = sortPositiveToNegative(combinedUnsorted)
+
