@@ -51,3 +51,9 @@ a.toBuffer
 for(j <- 0 until s.length)
   println(j + ": " + s(j))
 
+for(e <- friends)
+  println(e)
+
+val d = Array(2, 3, 5, 7, 11)
+val result = for(elem <- d) yield 2 * elem
+// yield will create a new collection of the same type
