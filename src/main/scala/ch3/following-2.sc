@@ -40,3 +40,17 @@ scala.util.Sorting.quickSort(az)
 az
 
 az.mkString
+
+val max = 7
+az.count(_ > max)
+
+az.mkString
+az :+ (7, 4) // creates a copy with the appended values
+az.mkString
+
+d :+ (7, 4)
+d.append(9, 10, 11)
+d.append(1)
+println(d.sorted)
+d.toArray
+
