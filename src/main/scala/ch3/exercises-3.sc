@@ -16,7 +16,6 @@ import scala.collection.JavaConverters.asScalaBuffer
 import scala.collection.mutable.Buffer
 val flavors = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
 
-import scala.collection.JavaConverters
 val buffer = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
 val converted: Buffer[String] = asScalaBuffer(buffer)
 
