@@ -21,3 +21,21 @@ m.distinct
 // rewrite the example at the end of Section 3.4
 // transforming arrays - using drop method for first
 // match
+val a = for(_ <- 0 until 10) yield random.nextInt(10)
+var first = true
+var n = a.length
+var i = 0
+while (i < n) {
+  if (a(i) >= 0) i += 1
+  else {
+    if (first) { first = false; i += 1 }
+    else { a.drop(i); n -= 1 }
+  }
+}
+a.toString
+a.drop(3)
+a.dropRight(3)
+a.dropWhile(_ > 9)
+a.dropWhile(_ * 5 % 3 == 1)
+)
+
