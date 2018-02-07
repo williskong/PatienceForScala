@@ -7,7 +7,7 @@ trait Logger {
 
 trait ShortLogger extends Logger {
   val maxLength = 25 // concrete field
-  abstract override def log(msg: String): Unit ={
+  override def log(msg: String){
     super.log{
       if(msg. length <= maxLength) msg
       else s"${msg.substring(0, maxLength - 3)}..."
@@ -15,7 +15,7 @@ trait ShortLogger extends Logger {
   }
 }
 
-trait ConsoleLogger extends Logger {
+trait ConsoleLogger {
 
 }
 
@@ -30,3 +30,4 @@ class SavingsAccount extends Account with ConsoleLogger with ShortLogger {
     else log(s"withdrawing $amount")
   }
 }
+
