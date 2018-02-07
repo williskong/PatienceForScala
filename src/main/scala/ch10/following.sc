@@ -1,3 +1,5 @@
+import java.io.PrintStream
+
 trait Logger {
   def log(msg: String)
   def info(msg: String) { log(s"INFO: $msg")}
@@ -29,5 +31,34 @@ class SavingsAccount extends Account with ConsoleLogger with ShortLogger {
     if(amount > balance) log("insufficient funds")
     else log(s"withdrawing $amount")
   }
+}
+
+trait FileLogger extends Logger{
+  val filename: String
+  val out = new PrintStream(filename)
+  def log(msg: String) { out.println(msg); out.flush}
+}
+
+// early definition
+val acct = new {
+  val filename = "myapp.log"
+} with SavingsAccount with FileLogger
+
+val accnt = new {
+  val filename = "testing123.log"
+} with SavingsAccount with FileLogger
+
+// early definition inside a class
+class Savings extends {
+  val filename = "savings.log"
+} with Account with FileLogger {
+
+}
+
+// lazy value in FileLogger contructor
+trait LazyFileLogger extends Logger {
+  val filename: String
+  lazy val out = new PrintStream(filename)
+  def log(msg: String) { out.println(msg)}
 }
 
