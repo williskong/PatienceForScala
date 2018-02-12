@@ -12,7 +12,7 @@ val in = new java.util.Scanner(new File("/Users/will/studies/PatienceForScala/sr
 var freq = TreeMap[String, Int]
 while(in.hasNext){
   val w = in.next
-  freq = freq + (w -> (freq.getOrElse(w, 0) + 1) )
+//  freq = freq + (w -> (freq.getOrElse(w, 0) + 1) )
 }
 
 for((k, v) <- freq) println(s"$k: $v")
