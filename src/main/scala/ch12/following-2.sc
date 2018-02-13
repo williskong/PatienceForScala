@@ -12,13 +12,25 @@ val powerOfTwo = powerOf(2)
 println(powerOfTwo(3))
 
 
-class Point(val x: Double = 0, val y: Double =0){
+class Point(var x: Double = 0, var y: Double =0){
   override def toString = (s"{$x, $y}")
+  def translate(x: Double, y: Double){
+    this.x += x; this.y += y
+  }
 }
 
-def translate(translateAmount: Double) =
+def nSquareAway(translateAmount: Double) =
   (x: Double, y: Double) => new Point(x + translateAmount, y + translateAmount)
 
-val moveFive = translate(5)
+val newFive = nSquareAway(5)
 val p = new Point
-val p2 = moveFive(p.x, p.y)
+val p2 = newFive(p.x, p.y)
+
+def translatePoint(moveX: Double, moveY: Double) =
+  (p: Point) => p.translate(moveX, moveY)
+
+val moveTen = translatePoint(10, 10)
+moveTen(p)
+p
+moveTen(p)
+p
