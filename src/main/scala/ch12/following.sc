@@ -46,3 +46,20 @@ getLength("hello")
 // String, String, Int => String
 val sub = (_: String).substring(_:Int, _: Int)
 sub("hellokazam", 4, 9)
+
+(1 to 9).map(.1 * _)
+
+(1 to 9).map("*" * _).foreach(println _)
+
+(1 to 100 by 5).map("*" * _).foreach(println _)
+
+(1 to 9).filter(_ % 2 == 0)
+(1 to 9).filter(_ % 3 == 0)
+(1 to 9).filter(_ * 5 % 3 == 0)
+
+// n results => 1 also..  1 * 2 * 3....
+(1 to 9).reduceLeft(_ * _)
+(1 to 9).reduceLeft(_ + _)
+(1 to 9).reduceLeft(_ + _ + 3)
+
+"Mary had a little lamb".split(" ").sortWith(_.length < _.length)
