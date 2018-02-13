@@ -39,3 +39,10 @@ quintuple(5)
 
 valueAtOneQuarter((x) => 3 * x)
 
+// String => Int function
+val getLength = (_: String).length
+getLength("hello")
+
+// String, String, Int => String
+val sub = (_: String).substring(_:Int, _: Int)
+sub("hellokazam", 4, 9)
