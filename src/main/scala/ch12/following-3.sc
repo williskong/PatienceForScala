@@ -15,3 +15,26 @@ val b = Array("hello", "world")
 a.corresponds(b)(_.equalsIgnoreCase(_))
 //def corresponds[B](that: Seq[B])(p: (A, B) => Boolean): Boolean
 
+def runInThread(block: => Unit) {
+  new Thread {
+    override def run() {block}
+  }.start()
+}
+
+//runInThread{ println("HI"); Thread.sleep(5000); println("Bye")}
+
+
+//call by name parameter
+def until(condition: => Boolean)(block: => Unit){
+  if(!condition){
+    block
+    until(condition)(block)
+  }
+}
+
+var x = 10
+until(x == 0){
+  x -= 1
+  println(x)
+}
+
