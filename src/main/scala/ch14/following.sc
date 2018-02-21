@@ -41,3 +41,17 @@ case class Currency(value: Double, Unit: String) extends Amount
 
 case object Nothing extends Amount
 
+val amt: Amount = Dollar(5.0)
+val amt2: Amount = Currency(5.0, "NPL")
+
+amt2 match {
+  case Dollar(v) => s"$$$v"
+  case Currency(_, u) => s"Oh noes, I got $u"
+  case Nothing => ""
+}
+
+// copy can create copy and reassign named parameters
+
+// case first :: second :: rest
+// is the same as
+// case ::(first, ::(second, rest))
