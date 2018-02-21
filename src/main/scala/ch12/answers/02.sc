@@ -6,3 +6,4 @@ Array(3, 5, 9, 1).reduceLeft(_ min _)
 
 
 
+Array(3, 5, 9, 1).reduceLeft(_ max _)
